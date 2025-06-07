@@ -18,7 +18,7 @@ A simple shell and Node.js utility for managing and navigating between VSCode `.
 ### 1. Clone the repository
 
 ```sh
-git clone https://github.com/yourusername/wss.git ~/wss
+git clone https://github.com/xemoe/workspaces.ls.git ~/wss
 ````
 
 ### 2. Make sure Node.js is installed
@@ -82,10 +82,13 @@ source ~/wss/workspaces.sh cd <id>
 To simplify usage, add the following function to your shell config file (`~/.zshrc` or `~/.bashrc`):
 
 ```sh
-workspace() {
+wss() {
   local script="$HOME/wss/workspaces.sh"
 
   case "$1" in
+    .)
+      cd $(dirname $script);
+      ;;
     ls)
       "$script" ls
       ;;
